@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Heart Alchemist · Bring Them Back</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8f4;
+            color: #4a3f3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #f9f0e9 0%, #fdf6f0 100%);
+            padding: 60px 0 80px;
+            text-align: center;
+            border-bottom: 2px solid #f0e3db;
+            position: relative;
+        }
+        .hero::after {
+            content: "✦";
+            font-size: 32px;
+            color: #d4b8a8;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fcf8f4;
+            padding: 0 16px;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #b7a094;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            font-size: 3.4rem;
+            color: #3d2e27;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        h1 span {
+            background: linear-gradient(135deg, #d4a088, #b88b78);
+            padding: 0 12px;
+            color: #fff;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 640px;
+            margin: 0 auto 32px;
+            color: #5f514a;
+            font-weight: 300;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #dbb6a4, #c99a84);
+            color: white;
+            border: none;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(201, 154, 132, 0.25);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(201, 154, 132, 0.35);
+            background: linear-gradient(135deg, #c99a84, #b8836b);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            margin: 70px 0 16px;
+            color: #3d2e27;
+        }
+        .section-sub {
+            text-align: center;
+            color: #8a7a72;
+            margin-bottom: 48px;
+            font-size: 1.05rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            flex: 1 1 280px;
+            padding: 40px 28px;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(74, 63, 58, 0.06);
+            border: 1px solid #f0e3db;
+            transition: 0.3s ease;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(74, 63, 58, 0.08);
+        }
+        .card .emoji-big {
+            font-size: 3.2rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #3d2e27;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #6b5d55;
+            font-size: 0.98rem;
+            margin-bottom: 18px;
+        }
+        .card .meta {
+            font-size: 0.85rem;
+            color: #b7a094;
+            letter-spacing: 0.3px;
+        }
+
+        /* ---- NEW: "What They Think" Section ---- */
+        .think-section {
+            background: linear-gradient(135deg, #f5ede7, #fcf8f4);
+            padding: 60px 0;
+            margin: 40px 0 20px;
+            border-radius: 80px 0 80px 0;
+            border: 1px solid #f0e3db;
+            text-align: center;
+        }
+        .think-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 400;
+            color: #3d2e27;
+            margin-bottom: 16px;
+        }
+        .think-section h2 span {
+            background: linear-gradient(135deg, #d4a088, #b88b78);
+            padding: 0 12px;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .think-section .think-sub {
+            font-size: 1.15rem;
+            color: #5f514a;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+        .think-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+        .think-card {
+            background: white;
+            padding: 28px 24px;
+            border-radius: 28px;
+            flex: 1 1 220px;
+            box-shadow: 0 8px 30px rgba(74, 63, 58, 0.06);
+            border: 1px solid #f0e3db;
+            transition: 0.3s;
+        }
+        .think-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(74, 63, 58, 0.08);
+        }
+        .think-card .think-emoji {
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .think-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #3d2e27;
+            margin-bottom: 6px;
+        }
+        .think-card p {
+            font-size: 0.92rem;
+            color: #6b5d55;
+            font-style: italic;
+        }
+        .think-cta {
+            margin-top: 32px;
+        }
+
+        /* ---- Testimonials ---- */
+        .testimonial-bg {
+            background: #f9f0e9;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 80px 0 80px 0;
+        }
+        .testimonial-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 28px 36px;
+            border-radius: 48px 12px 48px 12px;
+            border-left: 6px solid #dbb6a4;
+        }
+        .testimonial-item p {
+            font-size: 1.08rem;
+            font-style: italic;
+            color: #3d2e27;
+        }
+        .testimonial-item .author {
+            margin-top: 12px;
+            font-style: normal;
+            font-weight: 500;
+            color: #b8836b;
+        }
+
+        /* ---- About ---- */
+        .about-wrap {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 50px 0 70px;
+        }
+        .about-wrap .text {
+            flex: 2;
+        }
+        .about-wrap .text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+        .about-wrap .text p {
+            color: #5f514a;
+            margin-bottom: 16px;
+        }
+        .about-wrap .badge {
+            flex: 1;
+            background: #fff;
+            padding: 30px;
+            border-radius: 200px 60px 200px 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #fcf8f4, #f5ede7);
+            border: 1px solid #e6d6cd;
+        }
+        .about-wrap .badge span {
+            font-size: 3rem;
+            display: block;
+        }
+
+        /* ---- Lead Magnet ---- */
+        .lead-magnet {
+            background: #3d2e27;
+            color: #f0e3db;
+            padding: 60px 40px;
+            border-radius: 60px 0 60px 0;
+            text-align: center;
+            margin: 30px 0 60px;
+        }
+        .lead-magnet h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #fff;
+        }
+        .lead-magnet p {
+            max-width: 500px;
+            margin: 10px auto 24px;
+            color: #d4c4bb;
+        }
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        .input-group input {
+            padding: 14px 22px;
+            border-radius: 60px;
+            border: none;
+            width: 280px;
+            font-size: 1rem;
+            background: #fcf8f4;
+        }
+        .input-group .btn-secondary {
+            background: #dbb6a4;
+            color: #3d2e27;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .input-group .btn-secondary:hover {
+            background: #f0e3db;
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #b7a094;
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid #e6d6cd;
+            padding-top: 30px;
+        }
+
+        /* ---- Energy Work Badge (NEW) ---- */
+        .energy-badge {
+            display: inline-block;
+            background: rgba(211, 184, 168, 0.15);
+            border: 1px solid #dbb6a4;
+            border-radius: 60px;
+            padding: 6px 20px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: #b8836b;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2.4rem; }
+            .hero { padding: 40px 0 60px; }
+            .about-wrap { flex-direction: column; }
+            .think-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="subtitle">✦ Real Energy Work · No Tricks ✦</div>
+        <h1>They're Not Gone.<br>They're Just <span>Waiting</span> for the Signal.</h1>
+        <p>Has your partner grown cold? Distant? Walked away entirely? There is an invisible thread that still connects you—and with <strong>authentic energetic techniques</strong>, we can make it vibrate again. I help you reopen the door they thought they had closed.</p>
+        <a href="#" class="btn-primary">🌙 Show Me How to Bring Them Back</a>
+        <p style="margin-top:18px; font-size:0.85rem; color:#b7a094;">A 15-min clarity call · No judgment · Just answers</p>
+    </div>
+</section>
+
+<!-- NEW: "WHAT ARE THEY THINKING?" SECTION -->
+<section class="think-section">
+    <div class="container">
+        <span class="energy-badge">✦ Energy Reading · Not Psychic Tricks ✦</span>
+        <h2>Would You Want to Know <span>What They're Really Thinking?</span></h2>
+        <p class="think-sub">
+            This isn't guesswork. This is <strong>energetic resonance reading</strong>—tuning into the frequency they're emitting right now, whether they're 10 feet away or 1,000 miles. Here's what I often uncover:
+        </p>
+
+        <div class="think-grid">
+            <div class="think-card">
+                <span class="think-emoji">💭</span>
+                <h4>They Miss You</h4>
+                <p>"I think about them more than I admit. I just don't know how to reach out."</p>
+            </div>
+            <div class="think-card">
+                <span class="think-emoji">😤</span>
+                <h4>They're Stubborn</h4>
+                <p>"My pride is keeping me away. I'm waiting for a sign that they still care."</p>
+            </div>
+            <div class="think-card">
+                <span class="think-emoji">😰</span>
+                <h4>They're Scared</h4>
+                <p>"I'm afraid of getting hurt again. But I haven't moved on—I'm just frozen."</p>
+            </div>
+            <div class="think-card">
+                <span class="think-emoji">❤️</span>
+                <h4>They Still Love You</h4>
+                <p>"The love didn't die. The communication did. I wish they knew that."</p>
+            </div>
+        </div>
+
+        <div class="think-cta">
+            <a href="#" class="btn-primary">🔮 Read My Partner's Energy</a>
+            <p style="margin-top:12px; font-size:0.85rem; color:#8a7a72;">I'll tell you exactly what they're feeling—no sugar-coating.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3 PATHWAYS -->
+<div class="container">
+    <h2 class="section-title">Three Bridges Back to Their Heart</h2>
+    <p class="section-sub">Choose the path that matches where your lover is right now.</p>
+
+    <div class="cards">
+        <div class="card">
+            <span class="emoji-big">🌊</span>
+            <h3>The Pull-Back Ritual</h3>
+            <p>For when they've gone cold or silent. We realign your energetic frequency so they start <em>thinking of you</em> again—without you saying a word. This is frequency work, not manipulation.</p>
+            <span class="meta">⏳ 75 min · Zoom · ✨ Distance Reconnection Code</span>
+        </div>
+        <div class="card">
+            <span class="emoji-big">🔗</span>
+            <h3>The Soul-Tie Revival</h3>
+            <p>For broken engagements, separations, or "on a break." We repair the spiritual cord that was frayed, reigniting the magnetic pull they once felt for you. This is deep, sacred work.</p>
+            <span class="meta">⏳ 90 min · Zoom · ✨ Cord-Weaving Technique</span>
+        </div>
+        <div class="card">
+            <span class="emoji-big">🕊️</span>
+            <h3>The Daily Whisper</h3>
+            <p>A weekly audio + gentle ritual sent to you. Soft, non-desperate actions that make them feel your presence even from afar—until they reach out first. No begging. No chasing.</p>
+            <span class="meta">💌 Weekly · 📱 SMS/Email · Cancel anytime</span>
+        </div>
+    </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testimonial-bg">
+    <div class="container">
+        <div class="testimonial-grid">
+            <div class="testimonial-item">
+                <p>“He hadn't spoken to me in 3 months. I did the 'Pull-Back Ritual' on a Wednesday. He texted me on Friday. By Sunday, he was at my door crying, saying he didn't know why he left. This is not a coincidence—this is real energy work.”</p>
+                <div class="author">— Elena, 29 (Reunited after 3 months apart)</div>
+            </div>
+            <div class="testimonial-item">
+                <p>“My husband said he 'didn't love me anymore' and moved out. I was devastated. After our Soul-Tie session, he called me a week later saying he felt 'physically pulled' to come home. We're in marriage counseling now, but it started with your work.”</p>
+                <div class="author">— Naomi, 41 (Back together after 6 weeks)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div class="container">
+    <div class="about-wrap">
+        <div class="text">
+            <h2>I don't do tricks. I do real energy work.</h2>
+            <p>Let me be clear: I don't use spells, hexes, or manipulation. I don't control anyone's free will. What I do is <strong>tune into the natural energetic cord</strong> that already exists between you and your partner—and gently remove the blocks that are keeping you apart.</p>
+            <p>Whether they left because of pride, fear, or a misunderstanding—I can help you <strong>reopen the door</strong> without begging, chasing, or losing your dignity. This is about alignment, not control. You deserve to be loved by the one you still dream of.</p>
+            <a href="#" class="btn-primary" style="padding:12px 36px; font-size:0.95rem;">Tell Me About Your Situation</a>
+        </div>
+        <div class="badge">
+            <span>⚡</span>
+            <h4 style="font-family:'Playfair Display',serif; margin:10px 0 0;">Energy Worker · Not a Magician</h4>
+            <p style="font-size:0.9rem; color:#8a7a72;">Over 200 couples brought back together through authentic frequency work</p>
+        </div>
+    </div>
+</div>
+
+<!-- LEAD MAGNET -->
+<div class="container">
+    <div class="lead-magnet">
+        <h3>💌 Free Download: The "Make Them Miss You" Audio</h3>
+        <p>A 9-minute guided energy visualization that sends a gentle, loving frequency directly to your lost partner—making them feel your presence and remember the good times. Use this nightly to soften their heart. <strong>This is real energy transmission, not hypnosis.</strong></p>
+        <div class="input-group">
+            <input type="email" placeholder="Enter your email for the audio...">
+            <button class="btn-secondary">Send Me the Audio</button>
+        </div>
+        <p style="font-size:0.75rem; margin-top:14px; color:#b7a094;">✨ No spam. This is the first step toward bringing them back—through energy, not tricks.</p>
+    </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="container">
+    <div class="disclaimer">
+        ⚕️ Spiritual guidance is a complement to, not a substitute for, professional psychological or medical advice. I am here to support your emotional and relational journey. All energy work is performed with the highest ethical standards and respect for free will.
+    </div>
+</div>
+
+</body>
+</html>
