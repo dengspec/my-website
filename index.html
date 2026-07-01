@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Heart Alchemist · Bring Them Back</title>
+    <title>Heart Oracle · Bring Them Back with Energy Work</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -26,6 +26,7 @@
             padding: 0 24px;
         }
 
+        /* ---- Hero ---- */
         .hero {
             background: linear-gradient(145deg, #f9f0e9 0%, #fdf6f0 100%);
             padding: 60px 0 80px;
@@ -43,6 +44,20 @@
             transform: translateX(-50%);
             background: #fcf8f4;
             padding: 0 16px;
+        }
+
+        .oracle-badge {
+            display: inline-block;
+            background: rgba(211, 184, 168, 0.2);
+            border: 1px solid #dbb6a4;
+            border-radius: 60px;
+            padding: 6px 24px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #b8836b;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            font-weight: 500;
         }
 
         .subtitle {
@@ -67,6 +82,7 @@
             padding: 0 12px;
             color: #fff;
             font-style: italic;
+            border-radius: 4px;
         }
 
         .hero p {
@@ -98,6 +114,44 @@
             background: linear-gradient(135deg, #c99a84, #b8836b);
         }
 
+        .btn-whatsapp {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 16px 48px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 34px rgba(37, 211, 102, 0.35);
+            background: #1ebe5c;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: #dbb6a4;
+            color: #3d2e27;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-secondary:hover {
+            background: #f0e3db;
+        }
+
         .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
@@ -113,6 +167,7 @@
             font-size: 1.05rem;
         }
 
+        /* ---- Cards ---- */
         .cards {
             display: flex;
             gap: 30px;
@@ -157,8 +212,26 @@
             color: #b7a094;
             letter-spacing: 0.3px;
         }
+        .card .btn-small {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, #dbb6a4, #c99a84);
+            color: white;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .card .btn-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201, 154, 132, 0.3);
+        }
 
-        /* ---- NEW: "What They Think" Section ---- */
+        /* ---- "What They Think" Section ---- */
         .think-section {
             background: linear-gradient(135deg, #f5ede7, #fcf8f4);
             padding: 60px 0;
@@ -197,7 +270,7 @@
             background: white;
             padding: 28px 24px;
             border-radius: 28px;
-            flex: 1 1 220px;
+            flex: 1 1 200px;
             box-shadow: 0 8px 30px rgba(74, 63, 58, 0.06);
             border: 1px solid #f0e3db;
             transition: 0.3s;
@@ -244,6 +317,20 @@
             padding: 28px 36px;
             border-radius: 48px 12px 48px 12px;
             border-left: 6px solid #dbb6a4;
+            position: relative;
+        }
+        .testimonial-item::before {
+            content: "Heart Oracle";
+            position: absolute;
+            top: -12px;
+            right: 30px;
+            background: #dbb6a4;
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 16px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         .testimonial-item p {
             font-size: 1.08rem;
@@ -274,6 +361,12 @@
             font-weight: 400;
             margin-bottom: 16px;
         }
+        .about-wrap .text h2 span {
+            background: linear-gradient(135deg, #d4a088, #b88b78);
+            padding: 0 12px;
+            color: #fff;
+            border-radius: 4px;
+        }
         .about-wrap .text p {
             color: #5f514a;
             margin-bottom: 16px;
@@ -290,6 +383,121 @@
         .about-wrap .badge span {
             font-size: 3rem;
             display: block;
+        }
+
+        /* ---- Contact Form (Popup) ---- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal {
+            background: white;
+            padding: 48px 40px;
+            border-radius: 40px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #b7a094;
+            background: none;
+            border: none;
+            transition: 0.3s;
+        }
+        .modal-close:hover {
+            color: #3d2e27;
+            transform: rotate(90deg);
+        }
+        .modal h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #3d2e27;
+            margin-bottom: 8px;
+        }
+        .modal p {
+            color: #8a7a72;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .modal label {
+            display: block;
+            font-weight: 500;
+            color: #4a3f3a;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .modal input, .modal textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 1px solid #e6d6cd;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            background: #fcf8f4;
+            transition: 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .modal input:focus, .modal textarea:focus {
+            outline: none;
+            border-color: #dbb6a4;
+            box-shadow: 0 0 0 3px rgba(219, 182, 164, 0.2);
+        }
+        .modal textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .modal .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #dbb6a4, #c99a84);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .modal .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(201, 154, 132, 0.3);
+        }
+        .modal .whatsapp-alternative {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: #8a7a72;
+        }
+        .modal .whatsapp-alternative a {
+            color: #25D366;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .modal .whatsapp-alternative a:hover {
+            text-decoration: underline;
         }
 
         /* ---- Lead Magnet ---- */
@@ -349,7 +557,6 @@
             padding-top: 30px;
         }
 
-        /* ---- Energy Work Badge (NEW) ---- */
         .energy-badge {
             display: inline-block;
             background: rgba(211, 184, 168, 0.15);
@@ -363,34 +570,74 @@
             margin-bottom: 14px;
         }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            border-radius: 60px;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+            z-index: 500;
+            transition: 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-float img {
+            width: 24px;
+            height: 24px;
+        }
+
         @media (max-width: 700px) {
             h1 { font-size: 2.4rem; }
             .hero { padding: 40px 0 60px; }
             .about-wrap { flex-direction: column; }
             .think-section h2 { font-size: 2rem; }
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                padding: 12px 18px;
+                font-size: 0.85rem;
+            }
+            .whatsapp-float span { display: none; }
         }
     </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/447453415398?text=Hello%20Heart%20Oracle%20%F0%9F%AA%B7%20I%20need%20your%20help%20bringing%20my%20partner%20back." class="whatsapp-float" target="_blank">
+    💬 <span>Chat on WhatsApp</span>
+</a>
+
+<!-- ===== HERO ===== -->
 <section class="hero">
     <div class="container">
-        <div class="subtitle">✦ Real Energy Work · No Tricks ✦</div>
+        <div class="oracle-badge">✦ The Heart Oracle ✦</div>
+        <div class="subtitle">Real Energy Work · No Tricks</div>
         <h1>They're Not Gone.<br>They're Just <span>Waiting</span> for the Signal.</h1>
-        <p>Has your partner grown cold? Distant? Walked away entirely? There is an invisible thread that still connects you—and with <strong>authentic energetic techniques</strong>, we can make it vibrate again. I help you reopen the door they thought they had closed.</p>
-        <a href="#" class="btn-primary">🌙 Show Me How to Bring Them Back</a>
+        <p>Has your partner grown cold? Distant? Walked away entirely? The <strong>Heart Oracle</strong> sees the invisible thread that still connects you—and uses authentic energetic techniques to make it vibrate again. I help you reopen the door they thought they had closed.</p>
+        <a href="#" class="btn-primary" onclick="openModal(event)">🌙 Consult the Heart Oracle</a>
         <p style="margin-top:18px; font-size:0.85rem; color:#b7a094;">A 15-min clarity call · No judgment · Just answers</p>
     </div>
 </section>
 
-<!-- NEW: "WHAT ARE THEY THINKING?" SECTION -->
+<!-- ===== "WHAT ARE THEY THINKING?" ===== -->
 <section class="think-section">
     <div class="container">
         <span class="energy-badge">✦ Energy Reading · Not Psychic Tricks ✦</span>
         <h2>Would You Want to Know <span>What They're Really Thinking?</span></h2>
         <p class="think-sub">
-            This isn't guesswork. This is <strong>energetic resonance reading</strong>—tuning into the frequency they're emitting right now, whether they're 10 feet away or 1,000 miles. Here's what I often uncover:
+            This isn't guesswork. The <strong>Heart Oracle</strong> tunes into the frequency they're emitting right now—whether they're 10 feet away or 1,000 miles. Here's what I often uncover:
         </p>
 
         <div class="think-grid">
@@ -417,91 +664,153 @@
         </div>
 
         <div class="think-cta">
-            <a href="#" class="btn-primary">🔮 Read My Partner's Energy</a>
+            <a href="#" class="btn-primary" onclick="openModal(event)">🔮 Ask the Heart Oracle</a>
             <p style="margin-top:12px; font-size:0.85rem; color:#8a7a72;">I'll tell you exactly what they're feeling—no sugar-coating.</p>
         </div>
     </div>
 </section>
 
-<!-- 3 PATHWAYS -->
+<!-- ===== 3 PATHWAYS ===== -->
 <div class="container">
     <h2 class="section-title">Three Bridges Back to Their Heart</h2>
-    <p class="section-sub">Choose the path that matches where your lover is right now.</p>
+    <p class="section-sub">The Heart Oracle offers three sacred paths. Choose the one that calls to you.</p>
 
     <div class="cards">
         <div class="card">
             <span class="emoji-big">🌊</span>
             <h3>The Pull-Back Ritual</h3>
-            <p>For when they've gone cold or silent. We realign your energetic frequency so they start <em>thinking of you</em> again—without you saying a word. This is frequency work, not manipulation.</p>
+            <p>For when they've gone cold or silent. The Heart Oracle realigns your energetic frequency so they start <em>thinking of you</em> again—without you saying a word.</p>
             <span class="meta">⏳ 75 min · Zoom · ✨ Distance Reconnection Code</span>
+            <button class="btn-small" onclick="openModal(event)">Book This Session</button>
         </div>
         <div class="card">
             <span class="emoji-big">🔗</span>
             <h3>The Soul-Tie Revival</h3>
-            <p>For broken engagements, separations, or "on a break." We repair the spiritual cord that was frayed, reigniting the magnetic pull they once felt for you. This is deep, sacred work.</p>
+            <p>For broken engagements, separations, or "on a break." The Heart Oracle repairs the spiritual cord that was frayed, reigniting the magnetic pull they once felt for you.</p>
             <span class="meta">⏳ 90 min · Zoom · ✨ Cord-Weaving Technique</span>
+            <button class="btn-small" onclick="openModal(event)">Book This Session</button>
         </div>
         <div class="card">
             <span class="emoji-big">🕊️</span>
             <h3>The Daily Whisper</h3>
-            <p>A weekly audio + gentle ritual sent to you. Soft, non-desperate actions that make them feel your presence even from afar—until they reach out first. No begging. No chasing.</p>
+            <p>A weekly audio + gentle ritual sent to you. Soft, non-desperate actions that make them feel your presence even from afar—until they reach out first.</p>
             <span class="meta">💌 Weekly · 📱 SMS/Email · Cancel anytime</span>
+            <button class="btn-small" onclick="openModal(event)">Subscribe Now</button>
         </div>
     </div>
 </div>
 
-<!-- TESTIMONIALS -->
+<!-- ===== TESTIMONIALS ===== -->
 <div class="testimonial-bg">
     <div class="container">
         <div class="testimonial-grid">
             <div class="testimonial-item">
-                <p>“He hadn't spoken to me in 3 months. I did the 'Pull-Back Ritual' on a Wednesday. He texted me on Friday. By Sunday, he was at my door crying, saying he didn't know why he left. This is not a coincidence—this is real energy work.”</p>
+                <p>“He hadn't spoken to me in 3 months. I consulted the Heart Oracle on a Wednesday. He texted me on Friday. By Sunday, he was at my door crying, saying he didn't know why he left. This is not a coincidence—this is real energy work.”</p>
                 <div class="author">— Elena, 29 (Reunited after 3 months apart)</div>
             </div>
             <div class="testimonial-item">
-                <p>“My husband said he 'didn't love me anymore' and moved out. I was devastated. After our Soul-Tie session, he called me a week later saying he felt 'physically pulled' to come home. We're in marriage counseling now, but it started with your work.”</p>
+                <p>“My husband said he 'didn't love me anymore' and moved out. I was devastated. After my Soul-Tie session with the Heart Oracle, he called me a week later saying he felt 'physically pulled' to come home. We're in marriage counseling now, but it started with this work.”</p>
                 <div class="author">— Naomi, 41 (Back together after 6 weeks)</div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ===== ABOUT THE HEART ORACLE ===== -->
 <div class="container">
     <div class="about-wrap">
         <div class="text">
-            <h2>I don't do tricks. I do real energy work.</h2>
-            <p>Let me be clear: I don't use spells, hexes, or manipulation. I don't control anyone's free will. What I do is <strong>tune into the natural energetic cord</strong> that already exists between you and your partner—and gently remove the blocks that are keeping you apart.</p>
-            <p>Whether they left because of pride, fear, or a misunderstanding—I can help you <strong>reopen the door</strong> without begging, chasing, or losing your dignity. This is about alignment, not control. You deserve to be loved by the one you still dream of.</p>
-            <a href="#" class="btn-primary" style="padding:12px 36px; font-size:0.95rem;">Tell Me About Your Situation</a>
+            <h2>About the <span>Heart Oracle</span></h2>
+            <p>The Heart Oracle is not a person—it is a <strong>sacred channel</strong> of divine love energy. I am simply the vessel through which this wisdom flows. When you come to me, you are coming to an ancient, gentle presence that has guided countless hearts back to each other.</p>
+            <p>I don't do tricks, spells, or manipulation. I don't control anyone's free will. What I do is <strong>tune into the natural energetic cord</strong> that already exists between you and your partner—and gently remove the blocks that are keeping you apart. This is about alignment, not control. This is the work of the Heart Oracle.</p>
+            <a href="#" class="btn-primary" onclick="openModal(event)" style="padding:12px 36px; font-size:0.95rem;">Speak to the Heart Oracle</a>
         </div>
         <div class="badge">
-            <span>⚡</span>
-            <h4 style="font-family:'Playfair Display',serif; margin:10px 0 0;">Energy Worker · Not a Magician</h4>
-            <p style="font-size:0.9rem; color:#8a7a72;">Over 200 couples brought back together through authentic frequency work</p>
+            <span>🪷</span>
+            <h4 style="font-family:'Playfair Display',serif; margin:10px 0 0;">Channel of the Heart Oracle</h4>
+            <p style="font-size:0.9rem; color:#8a7a72;">Over 200 couples brought back together through authentic energy work</p>
         </div>
     </div>
 </div>
 
-<!-- LEAD MAGNET -->
+<!-- ===== LEAD MAGNET ===== -->
 <div class="container">
     <div class="lead-magnet">
         <h3>💌 Free Download: The "Make Them Miss You" Audio</h3>
-        <p>A 9-minute guided energy visualization that sends a gentle, loving frequency directly to your lost partner—making them feel your presence and remember the good times. Use this nightly to soften their heart. <strong>This is real energy transmission, not hypnosis.</strong></p>
+        <p>A 9-minute guided energy visualization, channeled by the Heart Oracle. It sends a gentle, loving frequency directly to your lost partner—making them feel your presence and remember the good times.</p>
         <div class="input-group">
-            <input type="email" placeholder="Enter your email for the audio...">
-            <button class="btn-secondary">Send Me the Audio</button>
+            <input type="email" id="leadEmail" placeholder="Enter your email for the audio...">
+            <button class="btn-secondary" onclick="openModal(event)">Send Me the Audio</button>
         </div>
-        <p style="font-size:0.75rem; margin-top:14px; color:#b7a094;">✨ No spam. This is the first step toward bringing them back—through energy, not tricks.</p>
+        <p style="font-size:0.75rem; margin-top:14px; color:#b7a094;">✨ No spam. This is the first step toward bringing them back—through the Heart Oracle's energy, not tricks.</p>
     </div>
 </div>
 
-<!-- DISCLAIMER -->
-<div class="container">
-    <div class="disclaimer">
-        ⚕️ Spiritual guidance is a complement to, not a substitute for, professional psychological or medical advice. I am here to support your emotional and relational journey. All energy work is performed with the highest ethical standards and respect for free will.
+<!-- ===== CONTACT MODAL (POP-UP FORM) ===== -->
+<div class="modal-overlay" id="contactModal">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <h2>✨ Consult the Heart Oracle</h2>
+        <p>Fill in your details below and I'll reach out to you within 24 hours.</p>
+
+        <form id="contactForm" action="https://formsubmit.co/heartalchemist@heartoracles.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://heartoracles.com/thank-you.html">
+
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="Name" placeholder="e.g. Sarah" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="Email" placeholder="sarah@email.com" required>
+
+            <label for="message">Tell me about your situation</label>
+            <textarea id="message" name="Message" placeholder="Who left? How long ago? What do you want to happen?" required></textarea>
+
+            <button type="submit" class="btn-submit">🌙 Send to the Heart Oracle</button>
+        </form>
+
+        <div class="whatsapp-alternative">
+            Or reach out directly on <a href="https://wa.me/447453415398?text=Hello%20Heart%20Oracle%20%F0%9F%AA%B7%20I%20need%20your%20help%20bringing%20my%20partner%20back." target="_blank">WhatsApp 💬</a>
+        </div>
     </div>
 </div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="container">
+    <div class="disclaimer">
+        ⚕️ Spiritual guidance is a complement to, not a substitute for, professional psychological or medical advice. The Heart Oracle supports your emotional and relational journey with the highest ethical standards and respect for free will.
+    </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // Open the contact modal
+    function openModal(event) {
+        event.preventDefault();
+        document.getElementById('contactModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close the contact modal
+    function closeModal() {
+        document.getElementById('contactModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside the box
+    document.getElementById('contactModal').addEventListener('click', function(event) {
+        if (event.target === this) {
+            closeModal();
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
 
 </body>
 </html>
