@@ -811,6 +811,53 @@
         }
     });
 </script>
+document.getElementById('oracle-contact-form').addEventListener('submit', function(e) {
+    // Prevent the default form submission page-reload behavior
+    e.preventDefault();
+
+    const form = e.target;
+    const statusBox = document.getElementById('form-status-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    // Update button visual state immediately to prevent double submissions
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+    statusBox.textContent = "";
+
+    // Convert form elements natively into structured data JSON formats
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    // Execute background API post to the form endpoint
+    fetch(form.action, {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (response.ok) {
+            statusBox.style.color = "#2ecc71"; // Success Green
+            statusBox.textContent = "Thank you! Your message has been sent successfully.";
+            form.reset(); // Safely clear out form content areas
+        } else {
+            statusBox.style.color = "#e74c3c"; // Error Red
+            statusBox.textContent = "Oops! Submission failed. Please try again later.";
+        }
+    })
+    .catch(error => {
+        statusBox.style.color = "#e74c3c";
+        statusBox.textContent = "A connection error occurred. Please verify your internet connection.";
+    })
+    .finally(() => {
+        // Re-enable interactive elements for subsequent queries
+        submitBtn.textContent = "Send Message";
+        submitBtn.disabled = false;
+    });
+});
+
 
 </body>
 </html>
